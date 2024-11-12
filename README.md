@@ -14,7 +14,7 @@ Nombre de places dispos
 Payant ou gratuit
 nombre de places restantes et dispos
 possibilité de mettre des photos
-
+Historique de reservations
 
 Objectif Mike : Réalisation d’une maquette 
 
