@@ -26,7 +26,7 @@
 <br/>
 <p>
     <label for="location">Localité : </label>
-<input type="text" name="location" id="location">
+<input type="text" name="location" id="location" size="15">
 
 </p>
 <br/> 
@@ -43,7 +43,7 @@
 </p>
 <p>
 <label for="event_number_place_total">Nombre de places mis à disposition</label>
-<input type="number" name="event_number_place_total"> 
+<input type="number" name="event_number_place_total" > 
 </p>
 
 <p>
