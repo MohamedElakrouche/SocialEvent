@@ -12,7 +12,7 @@
    
 <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
     
-<link rel="stylesheet" href="css/loginstyle.css"> 
+<link rel="stylesheet" href="css/loginstyle.css "> 
 
 </head>
 <body>
