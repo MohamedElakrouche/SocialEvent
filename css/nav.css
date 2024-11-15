@@ -1,0 +1,48 @@
+/* Conteneur de la barre de navigation */
+.nav {
+    background-color: rgba(219, 190, 139, 0.705); /* Couleur de fond similaire à .create_container */
+    border-radius: 8px;
+    max-width: 60%; /* Limite la largeur de la barre */
+    margin: 30px auto; /* Centre la barre de navigation */
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(235, 92, 4, 0.9); /* Ombre similaire à .create_container */
+    text-align: center;
+    font-family: 'Yellowtail', cursive;
+}
+
+/* Liste de navigation */
+.nav ul {
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+/* Élément de la liste */
+.nav ul li {
+    margin: 0 20px; /* Espacement horizontal entre les éléments */
+}
+
+/* Style des liens */
+.nav ul li a {
+    text-decoration: none;
+    color: rgb(3, 97, 104); /* Couleur de texte alignée avec .label et .h1 */
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+/* Effet de survol */
+.nav ul li a:hover {
+    background-color: rgba(243, 229, 203, 0.404); /* Couleur de survol similaire aux inputs */
+    color: #ed5904; /* Couleur d'accentuation */
+}
+
+/* Lien actif */
+.nav ul li a.active {
+    background-color: rgba(6, 107, 105, 0.8); /* Couleur de fond active pour indiquer la page courante */
+    color: white;
+}

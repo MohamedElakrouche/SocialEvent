@@ -1,0 +1,116 @@
+
+
+
+
+body {
+
+    
+    
+    height: 100%;
+    
+    font-weight: bold;
+   
+}
+
+
+
+
+
+
+
+
+
+
+/* Conteneur du carousel */
+.carousel-container {
+    width: 56%;
+    max-width: 80%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(235, 92, 4, 0.9); /* Ombre similaire à la charte */
+    background: rgba(219, 190, 139, 0.705); /* Fond similaire à .create_container */
+}
+
+/* Carousel en flexbox */
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Style de chaque élément du carousel */
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px;
+    color: rgb(3, 97, 104); /* Couleur de texte harmonisée */
+    font-family: 'Yellowtail', cursive;
+}
+
+/* Style des images du carousel */
+.carousel-item img {
+    width: 80%; /* Redimensionnement pour mieux s'intégrer */
+    max-height: 300px;
+    object-fit: cover;
+    border: 2px solid rgba(243, 229, 203, 0.404); /* Bordure similaire aux inputs */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+/* Titre de chaque élément */
+.carousel-item h3 {
+    font-size: 1.6em;
+    color: rgb(3, 97, 104); /* Couleur du texte en accord avec la charte */
+    font-family: 'Yellowtail', cursive;
+    margin-bottom: 10px;
+}
+
+/* Description de chaque élément */
+.carousel-item p {
+    padding: 0 20px;
+    font-size: 1em;
+    color: rgb(6, 107, 105); /* Texte avec couleur douce */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgba(243, 229, 203, 0.404); /* Fond similaire aux inputs */
+    border-radius: 6px;
+    padding: 10px;
+}
+
+/* Boutons de navigation */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+/* Style des boutons de contrôle */
+.carousel-controls button {
+    background-color: rgba(3, 97, 104, 0.8); /* Couleur en accord avec les autres éléments */
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+/* Effet de survol sur les boutons */
+.carousel-controls button:hover {
+    background-color: #ed5904; 
+}
+
+#event-counter {
+    text-align: center; 
+    font-size: 1.2em; 
+    padding: 10px; 
+    color: rgb(3, 97, 104);
+     font-weight: bold;
+
+}
