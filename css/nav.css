@@ -1,13 +1,13 @@
 /* Conteneur de la barre de navigation */
 .nav {
-    background-color: rgba(219, 190, 139, 0.705); /* Couleur de fond similaire à .create_container */
+    background-color: rgba(219, 190, 139, 0.705); /* Couleur de fond */
     border-radius: 8px;
     max-width: 60%; /* Limite la largeur de la barre */
     margin: 30px auto; /* Centre la barre de navigation */
     padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(235, 92, 4, 0.9); /* Ombre similaire à .create_container */
+    box-shadow: 0 4px 8px rgba(235, 92, 4, 0.9); /* Ombre */
     text-align: center;
-    font-family: 'Yellowtail', cursive;
+    font-family: 'Yellowtail', cursive; /* Police personnalisée */
 }
 
 /* Liste de navigation */
@@ -16,33 +16,49 @@
     justify-content: center; /* Centre les éléments horizontalement */
     padding: 0;
     margin: 0;
-    list-style-type: none;
+    list-style-type: none; /* Supprime les puces */
 }
 
-/* Élément de la liste */
-.nav ul li {
-    margin: 0 20px; /* Espacement horizontal entre les éléments */
-}
-
-/* Style des liens */
-.nav ul li a {
-    text-decoration: none;
-    color: rgb(3, 97, 104); /* Couleur de texte alignée avec .label et .h1 */
+/* Lien contenant l'élément de liste */
+.nav ul a {
+    text-decoration: none; /* Supprime le soulignement */
+    color: rgb(3, 97, 104); /* Couleur du texte */
     font-size: 1.2em;
-    padding: 10px 20px;
     border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition fluide */
     font-weight: bold;
+    display: flex; /* Permet d'ajuster le contenu dans le lien */
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Espacement entre les éléments */
+.nav ul a:not(:last-child) {
+    margin-right: 20px;
 }
 
 /* Effet de survol */
-.nav ul li a:hover {
-    background-color: rgba(243, 229, 203, 0.404); /* Couleur de survol similaire aux inputs */
+.nav ul a:hover {
+    background-color: rgba(243, 229, 203, 0.404); /* Couleur de survol */
     color: #ed5904; /* Couleur d'accentuation */
 }
 
 /* Lien actif */
-.nav ul li a.active {
-    background-color: rgba(6, 107, 105, 0.8); /* Couleur de fond active pour indiquer la page courante */
-    color: white;
+.nav ul a.active {
+    background-color: rgba(6, 107, 105, 0.8); /* Couleur de fond active */
+    color: white; /* Couleur du texte actif */
+    text-decoration: none;
+}
+
+/* Supprime les contours lors du focus */
+.nav ul a:focus {
+    text-decoration: none;
+    outline: none; /* Supprime le contour par défaut */
+}
+
+/* Élément de liste à l'intérieur du lien */
+.nav ul a li {
+    list-style: none; /* Supprime les puces */
+    padding: 0;
+    margin: 0;
 }
