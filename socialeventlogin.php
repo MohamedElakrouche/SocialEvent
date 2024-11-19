@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['user_email']) && isset($_POST['password'])) {
         // Récupérer les données du formulaire
         $email = $_POST['user_email'];
-        $password = $_POST['password'];
+        $password = $_POST['user_password'];
 
         // Préparer la requête pour vérifier si l'utilisateur existe
         $stmt = $pdo->prepare("SELECT * FROM user WHERE user_mail = :user_mail");
@@ -21,13 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $stmt->fetch();
 
         // Comparer directement le mot de passe (en supposant que `user_password` soit en clair)
-        if ($user && $password == $user['user_password']) {
+        if ($user && password_verify($password, $user['user_password'])) {
             // Authentification réussie
             header("Location: createEvent.php"); // Redirection vers l'espace personnel
             exit();
         } else {
             // Échec de l'authentification
-            $error_message = "Identifiants incorrects";
+            echo "Identifiants incorrects";
         }
     } else {
         $error_message = "Veuillez remplir tous les champs du formulaire.";
@@ -63,9 +63,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <label for="password">Mot de passe:</label>
             <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
-
+            
             <button type="submit">Login</button>
         </form>
+        
     </div>
 </body>
 </html>

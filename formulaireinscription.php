@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ':user_password' => $hashed_password,
             ]);
             echo "<p style='color: green;'>Inscription réussie !</p>";
-            header("location: createEvent.php");
+            header("location: socialeventlogin.php");
         } catch (PDOException $e) {
             // Gérer les erreurs (comme un email déjà utilisé)
             echo "<p style='color: red;'>Erreur lors de l'inscription : " . $e->getMessage() . "</p>";
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <span class="logo"><img src="Design_sans_titre__5_-removebg-preview.png" alt="socialevents"></span>
 <div class="form-container">
-    <form action="" method="post">
+    <form action="socialeventlogin.php" method="post">
         
             <h2>Inscription</h2>
         <p>Entrez vos informations pour créer un compte</p>
@@ -74,8 +74,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label for="user_password_confirm">Confirmer le mot de passe:</label>
             <input type="password" id="user_password_confirm" name="password_confirm" placeholder="Confirmez votre mot de passe" required>
 
-            <button type="submit">S'inscrire</button>
+            
         </div>
     </form>
+    <button type="submit">S'inscrire</button>
+</div>
 </body>
 </html>

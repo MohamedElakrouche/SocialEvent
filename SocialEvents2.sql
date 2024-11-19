@@ -90,6 +90,7 @@ CREATE TABLE `user` (
   `user_lastname` varchar(30) NOT NULL,
   `user_mail` varchar(50) NOT NULL,
   `user_password` int NOT NULL
+  'user_birthdate ' date YES NULL,
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
