@@ -1,0 +1,102 @@
+/* Style général */
+body {
+    font-family: 'Yellowtail', cursive;
+    background: rgba(243, 229, 203, 0.404);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Conteneur principal */
+.reservation-container {
+    width: 80%;
+    max-width: 600px;
+    background: rgba(219, 190, 139, 0.705); /* Couleur harmonisée */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(235, 92, 4, 0.9); /* Effet de relief */
+    text-align: center;
+    position: relative;
+}
+
+/* Titre de la page */
+h1 {
+    font-size: 2em;
+    color: rgb(3, 97, 104);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Détails de l'événement */
+.reservation-container p {
+    font-size: 1.2em;
+    color: rgb(6, 107, 105);
+    margin-bottom: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Formulaire */
+form {
+    margin-top: 20px;
+}
+
+/* Champs du formulaire */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1em;
+    color: rgb(3, 97, 104);
+}
+
+form input,
+form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ed5904;
+    border-radius: 6px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Bouton de soumission */
+form button {
+    background-color: #054b48;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Yellowtail', cursive;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #ed5904;
+}
+
+/* Message d'erreur ou de succès */
+.message {
+    margin-top: 20px;
+    font-size: 1em;
+    color: red;
+}
+
+/* Style pour les données dynamiques */
+strong {
+    color: #054b48;
+    font-weight: bold;
+}
+
+/* Ajout d'animations */
+form input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+form button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
