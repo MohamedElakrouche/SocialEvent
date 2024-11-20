@@ -38,7 +38,7 @@ $totalEvents = count($events); // Nombre total d'événements
                         <p><?php echo htmlspecialchars($event['event_number_place_total']) . ' places au total !'; ?></p>
                         <p><?php echo "Ville : " . htmlspecialchars($event['event_location']); ?></p>
                         <!-- Bouton Réserver -->
-                        <a href="event_page.php?id=<?php echo  $event['event_id']; ?>" class="reserve-button">Réserver</a>
+                        <a href="reservationEvent.php?event_id=<?php echo $event['event_id']; ?>" class="reserve-button">Réserver</a>
                     </div>
                 <?php endforeach;
             else: ?>

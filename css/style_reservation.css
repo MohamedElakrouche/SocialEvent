@@ -1,0 +1,52 @@
+body {
+    font-family: 'Yellowtail', cursive;
+    background-color: rgba(243, 229, 203, 0.404);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.reservation-container {
+    width: 80%;
+    max-width: 600px;
+    background-color: rgba(219, 190, 139, 0.705);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    color: rgb(3, 97, 104);
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: rgb(3, 97, 104);
+}
+
+form input, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ed5904;
+    border-radius: 6px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form button {
+    background-color: #054b48;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Yellowtail', cursive;
+}
+
+form button:hover {
+    background-color: #ed5904;
+}

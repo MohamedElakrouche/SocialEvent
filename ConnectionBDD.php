@@ -3,7 +3,7 @@
 $host = 'localhost';
 $dbname = 'socialevents';
 $username = 'root';
-$password = ''; // À ajuster selon votre configuration
+$password = 'root'; // À ajuster selon votre configuration
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
