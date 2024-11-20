@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_name = htmlspecialchars($_POST['user_name']);
     $user_firstname = htmlspecialchars($_POST['user_firstname']);
     $user_birthdate = htmlspecialchars($_POST['user_birthdate']);
-    $user_email = htmlspecialchars($_POST['user_email']);
+    $user_mail = htmlspecialchars($_POST['user_mail']);
     $password = $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
 
@@ -20,12 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         try {
             // Préparer et exécuter l'insertion dans la base de données
             $stmt = $pdo->prepare("INSERT INTO user (user_name, user_lastname, user_birthdate, user_mail, user_password) 
-                                   VALUES (:user_name, :user_firstname, :user_birthdate, :user_email, :user_password)");
+                                   VALUES (:user_name, :user_firstname, :user_birthdate, :user_mail, :user_password)");
             $stmt->execute([
                 ':user_name' => $user_name,
                 ':user_firstname' => $user_firstname,
                 ':user_birthdate' => $user_birthdate,
-                ':user_email' => $user_email,
+                ':user_mail' => $user_mail,
                 ':user_password' => $hashed_password,
             ]);
             echo "<p style='color: green;'>Inscription réussie !</p>";
@@ -50,9 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <span class="logo"><img src="Design_sans_titre__5_-removebg-preview.png" alt="socialevents"></span>
-    <div class="form-container">
-        <form action="socialeventlogin.php" method="post">
 
+<div class="form-container">
+    <form method="post">
             <h2>Inscription</h2>
             <p>Entrez vos informations pour créer un compte</p>
 
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="date" id="birthdate" name="user_birthdate" placeholder="Entrez votre date de naissance" required>
 
             <label for="user_mail">Mail:</label>
-            <input type="mail" id="user_mail" name="user_email" placeholder="Entrez votre mail" required>
+            <input type="mail" id="user_mail" name="user_mail" placeholder="Entrez votre mail" required>
 
             <label for="user_password">Mot de passe:</label>
             <input type="password" id="user_password" name="password" placeholder="Entrez votre mot de passe" required>

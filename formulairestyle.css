@@ -19,16 +19,19 @@ body{
     background-size: cover; 
     height: 100vh;
     color: rgb(6, 107, 105);
+    margin: 0%;
+    padding: 0%;
+    
     
     
 }
 
 .form-container {
     width: 50%;
-    height: 80%;
+    height: 90%;
     display: flex;
     justify-content:center; ;
-    align-items:center;
+   
     background: rgba(219, 190, 139, 0.3);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(235, 92, 4, 0.9);
@@ -42,11 +45,13 @@ body{
 .logo{
     display: flex;
     margin: 0px auto;  
-    height: auto; 
-    width: 270px; 
+    height: 350px; 
+    width: 350px; 
     position: relative;
     justify-content: center;
-    bottom: 150px;
+    margin-bottom: 250px;
+    margin-top: 20px;
+    
 
 }
 
@@ -61,7 +66,7 @@ input[type="mail"], input[type="password"], input[type="text"], input[type="date
     display: flex;
     flex-direction: column; 
     margin-left: 30px;
-     
+    
 }
 
 button{
@@ -78,6 +83,8 @@ button{
     justify-content: center;
     flex-direction: column;
     margin-left: 30px;
+    align-items: center;
+    margin-top: 20px;
     
     
     
@@ -91,3 +98,10 @@ button:hover{
     font-weight: normal;
     font-style: normal;
       }
+      
+label{
+    font-family: 'Yellowtail', cursive;
+    font-size: 1.2em;
+    color: rgb(3, 97, 104);
+    
+}
