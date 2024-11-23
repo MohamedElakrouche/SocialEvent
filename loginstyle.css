@@ -21,7 +21,7 @@ label{
 }
 
 body{
-    background-image: url('Image.png');
+    background-image: url('/image/background10.png');
     background-size: cover; 
     height: 100vh;
     color: rgb(6, 107, 105);
