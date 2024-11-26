@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 ':user_mail' => $user_mail,
                 ':user_password' => $hashed_password,
             ]);
-            echo "<p style='color: green;'>Inscription réussie !</p>";
+            echo "<p style='color: orange;'>Inscription réussie !</p>";
             header("location: socialeventlogin.php");
         } catch (PDOException $e) {
             // Gérer les erreurs (comme un email déjà utilisé)
@@ -39,40 +39,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-    <link rel="stylesheet" href="formulairestyle.css">
+    <!--<link rel="stylesheet" href="formulairestyle.css"> le css on reviendera dessus -->
 </head>
 
 <body>
-    <span class="logo"><img src="Design_sans_titre__5_-removebg-preview.png" alt="socialevents"></span>
+    <!--<span class="logo"><img src="Design_sans_titre__5_-removebg-preview.png" alt="socialevents"></span>--> <!-- le logo on reviendera dessus-->
 
 <div class="form-container">
     <form method="post">
-            <h2>Inscription</h2>
-            <p>Entrez vos informations pour créer un compte</p>
+             <h1>Bienvnu sur Socialevents</h1>
+            <h2>Inscrivez vous :</h2>
+            <p>Entrez vos informations pour créer un compte :</p>
 
             <label for="user_name">Nom:</label>
-            <input type="text" id="user_name" name="user_name" placeholder="Entrez votre nom" required>
+            <input type="text" id="user_name" name="user_name" placeholder="Entrez votre nom" size= "25" required></br></br>
 
             <label for="user_firstname">Prénom:</label>
-            <input type="text" id="user_firstname" name="user_firstname" placeholder="Entrez votre prénom" required>
+            <input type="text" id="user_firstname" name="user_firstname" placeholder="Entrez votre prénom" size="25" required></br></br>
 
-            <label for="birthdate">Date de naissance:</label>
-            <input type="date" id="birthdate" name="user_birthdate" placeholder="Entrez votre date de naissance" required>
+            <label for="birthdate">Date de naissance :</label>
+            <input type="Date" id="birthdate" name="user_birthdate" placeholder="Entrez votre date de naissance" size="25" required></br></br>
 
             <label for="user_mail">Mail:</label>
-            <input type="mail" id="user_mail" name="user_mail" placeholder="Entrez votre mail" required>
+            <input type="mail" id="user_mail" name="user_mail" placeholder="Entrez votre mail" size="25" required></br></br>
 
-            <label for="user_password">Mot de passe:</label>
-            <input type="password" id="user_password" name="password" placeholder="Entrez votre mot de passe" required>
+            <label for="user_password">Mot de passe :</label>
+            <input type="password" id="user_password" name="password" placeholder= "Entrez votre mot de passe" size="25" required></br></br>
 
-            <label for="user_password_confirm">Confirmer le mot de passe:</label>
-            <input type="password" id="user_password_confirm" name="password_confirm" placeholder="Confirmez votre mot de passe" required>
+            <label for="user_password_confirm">Confirmer mot de passe</label>
+            <input type="password" id="user_password_confirm" name="password_confirm" placeholder="Confirmez votre mot de passe" size="25" required></br></br>
             <button type="submit">S'inscrire</button>
 
     </div>
