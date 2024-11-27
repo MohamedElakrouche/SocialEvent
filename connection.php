@@ -5,7 +5,7 @@ $host = 'localhost';
 $port = '3306';
 $dbname = 'socialevent';
 $username = 'root';
-$password = 'root';
+$password = '';
 
 try {
 

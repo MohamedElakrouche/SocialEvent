@@ -7,6 +7,8 @@ $sql = "SELECT event_id, event_title, event_image, event_describe, event_number_
 $stmt = $pdo->query($sql);
 $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $totalEvents = count($events); // Nombre total d'événements
+
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +22,8 @@ $totalEvents = count($events); // Nombre total d'événements
 </head>
 
 <body>
+
+
 
     <h1 style="text-align: center;">Événements en cours</h1>
 
@@ -87,6 +91,7 @@ $totalEvents = count($events); // Nombre total d'événements
         // Initialise le compteur lors du chargement de la page
         updateCounter();
     </script>
+
 
 </body>
 
