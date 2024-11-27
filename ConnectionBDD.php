@@ -1,6 +1,6 @@
 <?php
 // Connexion à la base de données
-$host = 'localhost';
+/*$host = 'localhost';
 $dbname = 'socialevents';
 $username = 'root';
 $password = 'root'; // À ajuster selon votre configuration
@@ -10,4 +10,4 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());
-}
+}*/

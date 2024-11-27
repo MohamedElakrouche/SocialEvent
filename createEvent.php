@@ -1,3 +1,12 @@
+<?php
+require 'connection.php'; // Inclure la configuration de la connexion à la BDD
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Création d'évènements</title>
     <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style_createEvent.css">
+    <!--<link rel="stylesheet" href="css/style_createEvent.css">-->
 
     <?php include "connection.php";
 
@@ -15,7 +24,7 @@
 </head>
 
 <body>
-    <img src="socialeventsweb/Design_sans_titre__5_-removebg-preview.png" alt="socialevents" class="logo">
+    <!--<img src="socialeventsweb/Design_sans_titre__5_-removebg-preview.png" alt="socialevents" class="logo">-->
 
     <h1>Créer votre évènement </h1>
 
