@@ -1,8 +1,16 @@
 <?php
 require 'connection.php'; // Inclure la configuration de la connexion à la BDD
+include_once "nav.php";
 
 
+ if ($_SESSION["user_id"]) {
 
+    echo "Bonjour toi";
+}
+else {
+
+    header("Location:socialeventlogin.php");
+}
 
 
 ?>

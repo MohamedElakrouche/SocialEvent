@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'connection.php'; // Inclure la configuration de la connexion à la BDD
 
 // Initialiser le message d'erreur
@@ -20,11 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute(['user_mail' => $email]);
         $user = $stmt->fetch();
 
+
         // Comparer directement le mot de passe (en supposant que `user_password` soit en clair)
         if ($user){
         if (password_verify($password, $user['user_password'])) {
             // Authentification réussie
             header("Location: createEvent.php"); // Redirection vers l'espace personnel
+            
+$_SESSION["user_id"]=$user["user_id"];
             exit();
         } else {
             //Mot de passe incorrect
