@@ -6,7 +6,8 @@ require 'connection.php'; // Inclure la configuration de la connexion à la BDD
 $error_message = '';
 
 // Vérifier si le formulaire est soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
 
 
     if (isset($_POST['user_mail']) && isset($_POST['user_password'])) {
@@ -23,23 +24,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         // Comparer directement le mot de passe (en supposant que `user_password` soit en clair)
-        if ($user){
-        if (password_verify($password, $user['user_password'])) {
-            // Authentification réussie
-            header("Location: createEvent.php"); // Redirection vers l'espace personnel
+        if ($user)
+        {
+        if (password_verify($password, $user['user_password'])) 
+            {
+                // Authentification réussie
+                
             
-$_SESSION["user_id"]=$user["user_id"];
-            exit();
-        } else {
+                $_SESSION["user_id"]=$user["user_id"];
+
+                header("Location:createEvent.php"); // Redirection vers l'espace personnel
+                exit();
+            } 
+            
+            else
+             
+            {
             //Mot de passe incorrect
             echo "identifiants incorrects";
-        }
-        } else {
-            // Utilisateur non trouvé
-            echo "identifiants incorrects";
-        }
-    } else {
+            }
+        } 
+        else {
         $error_message = "Identifiants incorrects";
+    }
     }
 }
 ?>
@@ -70,7 +77,7 @@ $_SESSION["user_id"]=$user["user_id"];
             ?>
 
             <label for="user_mail">Mail:</label>
-            <input type="mail" id="user_mail" name="user_mail" placeholder="Entrez votre mail" required>
+            <input type="email" id="user_mail" name="user_mail" placeholder="Entrez votre mail" required>
 
             <label for="password">Mot de passe:</label>
             <input type="password" id="user_password" name="user_password" placeholder="Entrez votre mot de passe" required>

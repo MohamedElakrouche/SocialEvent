@@ -2,12 +2,13 @@
 include "connection.php";
 include_once "nav.php";
 
+
+
 // Récupération des événements depuis la base de données
 $sql = "SELECT event_id, event_title, event_image, event_describe, event_number_place_total, event_location FROM event"; // Ajout de 'id' pour redirection unique
 $stmt = $pdo->query($sql);
 $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $totalEvents = count($events); // Nombre total d'événements
-
 
 ?>
 
@@ -29,7 +30,7 @@ $totalEvents = count($events); // Nombre total d'événements
 
     <div class="carousel-container">
         <!-- Compteur d'événements -->
-        <div id="event-counter">
+        <div id="event-counter"> 
             1/<?php echo $totalEvents; ?>
         </div>
 
