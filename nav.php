@@ -14,9 +14,18 @@ if (!isset($_SESSION['user_id'])) {
         <a href="homeEvent.php">
             <li>Accueil</li>
         </a>
-        <a href="myEvents.php">
-            <li>Mes évènements</li>
-        </a>
+        <li>
+            <ul>
+                <li>
+            <a href="myEvents.php"> Mes réservations </a>
+                </li>
+                <li>
+<a href="myCreatedEvents.php">Mes évènements </a>
+
+                </li>
+        
+            </ul>
+        </li>
         <a href="createEvent.php">
             <li>Création</li>
         </a>
