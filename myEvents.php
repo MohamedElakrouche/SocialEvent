@@ -12,7 +12,7 @@ $user_id = $_SESSION['user_id'];
 try {
     // Préparer la requête pour récupérer les événements réservés par l'utilisateur
     $stmt = $pdo->prepare("
-        SELECT e.event_id, e.event_title, e.event_describe, e.event_date_begin
+        SELECT e.event_id, e.event_title, e.event_describe, e.event_date_begin,e.event_duration
         FROM event e
         INNER JOIN reservation r ON e.event_id = r.event_id
         WHERE r.user_id = :user_id
@@ -82,6 +82,7 @@ try {
                     <h2><?php echo htmlspecialchars($event['event_title']); ?></h2>
                     <p class="event-date">Date de l'événement : <?php echo htmlspecialchars($event['event_date_begin']); ?></p>
                     <p><?php echo nl2br(htmlspecialchars($event['event_describe'])); ?></p>
+                    <p><?php echo 'Cet évènement dure : '. htmlspecialchars($event['event_duration']).' jours';?> </p> 
                     <!-- Vous pouvez ajouter des liens pour plus de détails sur l'événement -->
                 </div>
             <?php endforeach; ?>
