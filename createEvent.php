@@ -49,11 +49,11 @@ include_once "nav.php";
 
 
             <p>
-                <label for="event_date_begin">Date début</label>
-                <input type="date" name=event_date_begin>
+            <label for="event_date_begin">Date début</label>
+<input type="date" name="event_date_begin" min="<?php echo date('Y-m-d'); ?>">
 
-                <label for="event_date_end">Date fin</label>
-                <input type="date" name=event_date_end>
+<label for="event_date_end">Date fin</label>
+<input type="date" name="event_date_end" min="<?php echo date('Y-m-d'); ?>">
             </p>
             <p>
                 <label for="event_number_place_total">Nombre de places mis à disposition</label>
@@ -81,17 +81,41 @@ include_once "nav.php";
 
     <?php
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    // Récupérer les données du formulaire
+    $type_event = $_POST['type_event'];
+    $event_location = $_POST['event_location'];
+    $event_describe = $_POST['event_describe'];
+    $event_date_begin = $_POST['event_date_begin'];
+    $event_date_end = $_POST['event_date_end'];
+    $event_number_place_total = $_POST['event_number_place_total'];
+    $event_stuff = $_POST['event_stuff'];
 
-        // Récupérer les données du formulaire
-        $type_event = $_POST['type_event'];
-        $event_location = $_POST['event_location'];
-        $event_describe = $_POST['event_describe'];
-        $event_date_begin = $_POST['event_date_begin'];
-        $event_date_end = $_POST['event_date_end'];
-        $event_number_place_total = $_POST['event_number_place_total'];
-        $event_stuff = $_POST['event_stuff'];
+    // Initialiser un tableau pour stocker les messages d'erreur
+    $errors = [];
+
+    // Obtenir la date du jour
+    $today = date('Y-m-d');
+
+    // Vérifier que la date de début n'est pas antérieure à aujourd'hui
+    if ($event_date_begin < $today) {
+        $errors[] = "La date de début de l'événement ne peut pas être antérieure à la date du jour.";
+    }
+
+    // Vérifier que la date de fin n'est pas antérieure à la date de début
+    if ($event_date_end < $event_date_begin) {
+        $errors[] = "La date de fin de l'événement ne peut pas être antérieure à la date de début.";
+    }
+
+    // Si des erreurs existent, les afficher
+    if (!empty($errors)) {
+        foreach ($errors as $error) {
+            echo "<p class='error'>" . htmlspecialchars($error) . "</p>";
+        }
+    } else {
+        
 
         // Traiter l'upload de l'image
         $uploadDir = 'uploads/';
@@ -131,6 +155,7 @@ include_once "nav.php";
             exit();
         }
     }
+}
     ?>
 
 </body>
