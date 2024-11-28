@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-    <!--<link rel="stylesheet" href="formulairestyle.css"> le css on reviendera dessus -->
+    <link rel="stylesheet" href="formulairestyle.css"> <!--le css on reviendera dessus-->
 </head>
 
 <body>
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="form-container">
     <form method="post">
-             <h1>Bienvnu sur Socialevents</h1>
+             <h1>Bienvenus sur Socialevents</h1>
             <h2>Inscrivez vous :</h2>
             <p>Entrez vos informations pour créer un compte :</p>
 

@@ -4,48 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
-    <?php session_start(); 
-    include "connection.php";
-    ?>
+    
 
 </head>
 <body>
-    <?php if ($_SESSION["user_id"]) {
+<?php
+session_start(); // Démarre la session
 
-        $requete="SELECT * FROM event WHERE user_id=:user_id ";
-        $stmt=$pdo->prepare($requete);
-        $user_id=$_SESSION["user_id"];
-        $stmt->bindParam(":user_id",$user_id,PDO::PARAM_INT);
-        $stmt->execute();
-        $events=$stmt->fetchAll(PDO::FETCH_ASSOC);
+// Vérifiez si l'utilisateur est connecté
+if (!isset($_SESSION['user_id'])) {
+    // Si l'utilisateur n'est pas connecté, redirigez-le vers la page de connexion
+    header('Location: socialeventlogin.php');
+    exit;
+}
 
-        // Affichage des évènements crées par l'utilisateur
-    
-    if (!empty($events)){
+// Inclure la connexion à la base de données
+require 'connection.php';
 
-        foreach ($events as $event){
+// Récupérer l'ID de l'utilisateur connecté
+$user_id = $_SESSION['user_id'];
 
-            echo htmlspecialchars($event["event_title"]);
-        }
-    }
-    else {
-        echo " Aucun évènement crée";
-    }
+// Préparer la requête pour récupérer les informations de l'utilisateur
+$stmt = $pdo->prepare("SELECT user_name, user_lastname, user_mail FROM user WHERE user_id = :user_id");
+$stmt->execute(['user_id' => $user_id]);
 
-   
-    
-    
-    
-    
-    }
+// Récupérer les informations de l'utilisateur
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+// Vérifier si l'utilisateur existe
+if ($user) {
+    $user_name = $user['user_name'];
+    $user_lastname = $user['user_lastname'];
+    $user_mail = $user['user_mail'];
+} else {
+    // Si l'utilisateur n'existe pas, rediriger vers la page de connexion
+    header('Location: socialeventlogin.php');
+    exit;
+}
+?>
 
-    else {
-
-        header("Location:socialeventlogin.php");
-        exit();
-    }
-
-    ?>
 </body>
 </html>
