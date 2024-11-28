@@ -1,0 +1,107 @@
+/* Conteneur du carousel */
+.carousel-container {
+    position: relative;
+    max-width: 80%; /* Réduire la largeur du carousel à 80% de la page */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Style du carousel */
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Chaque élément du carousel */
+.carousel-item {
+    flex: 0 0 100%; /* Chaque élément prend 100% de la largeur du conteneur */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Images dans le carousel */
+.carousel-item img {
+    width: 80%; /* Réduit la largeur de l'image à 80% de son conteneur */
+    height: auto; /* Laisse l'image maintenir son ratio */
+    max-height: 300px; /* Limite la hauteur à 300px pour éviter que l'image soit trop grande */
+    object-fit: contain; /* Contient l'image sans la couper */
+    border-radius: 8px; /* Bordures arrondies pour les images */
+    margin-bottom: 15px; /* Espacement sous l'image */
+    display: block; /* Empêche l'image de dépasser du conteneur */
+    margin-left: auto;
+    margin-right: auto; /* Centre l'image horizontalement */
+}
+
+/* Contrôles du carousel */
+.carousel-controls {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-controls button {
+    background-color: rgba(52, 152, 219, 0.8);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-controls button:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+#event-counter {
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Responsive - Adapter le carousel pour les petits écrans */
+@media (max-width: 768px) {
+    .carousel-container {
+        max-width: 90%; /* Ajuster la taille du carousel pour les petits écrans */
+    }
+
+    .carousel-item {
+        padding: 10px;
+    }
+
+    .carousel-controls button {
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        max-width: 100%; /* Utiliser 100% de la largeur de l'écran sur les très petits écrans */
+    }
+
+    .carousel-item {
+        padding: 5px;
+    }
+
+    .carousel-controls button {
+        padding: 8px 12px;
+    }
+
+    #event-counter {
+        font-size: 16px;
+    }
+}

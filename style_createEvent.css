@@ -1,0 +1,106 @@
+/* Style global pour la page */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style du titre principal */
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 36px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+/* Conteneur du formulaire */
+.create_container {
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style des labels et des champs du formulaire */
+label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Style des champs de texte, textarea et select */
+input[type="text"], input[type="number"], input[type="date"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+/* Style du bouton "Valider" */
+#button_event {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60%;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto;
+    
+}
+
+#button_event:hover {
+    background-color: #2980b9;
+}
+
+/* Espacements supplémentaires pour la mise en page */
+p {
+    margin-bottom: 15px;
+}
+
+/* Style pour les erreurs d'upload de l'image */
+.error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .create_container {
+        padding: 20px;
+    }
+
+    label, input, textarea, select {
+        font-size: 14px;
+    }
+
+    #button_event {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+}

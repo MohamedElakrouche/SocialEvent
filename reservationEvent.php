@@ -107,27 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // CSS interne pour l'affichage du message de confirmation de réservation car déjà trop de fichiers CSS
 echo "
-         <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
-        .message-container {
-            text-align: center;
-            font-size: 24px;
-            color: #333;
-            padding: 20px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+        
 
 
     <div class='message-container'>

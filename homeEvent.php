@@ -1,16 +1,13 @@
 <?php
-// Démarrer la session
 session_start();
-
+require 'connection.php'; // Inclure la configuration de la connexion à la BDD
+include_once "nav.php";
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
     // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
     header('Location: socialeventlogin.php');
     exit;
 }
-
-// Inclure la connexion à la base de données
-include "connection.php";
 
 // Récupérer l'ID de l'utilisateur connecté
 $user_id = $_SESSION['user_id'];
@@ -40,48 +37,18 @@ $totalEvents = count($events); // Nombre total d'événements
 
 <body>
 
-    <!-- Barre de navigation -->
-    <div class="nav">
-        <ul>
-            <a href="homeEvent.php">
-                <li>Accueil</li>
-            </a>
-            <a href="myEvents.php">
-                <li>Mes évènements</li>
-            </a>
-            <a href="createEvent.php">
-                <li>Création</li>
-            </a>
-            <a href="profile.php">
-                <li>Profil</li>
-            </a>
-        </ul>
-        <form action="" method="POST">
-            <input type="hidden" name="action" value="logout">
-            <button id="logout" type="submit">Se déconnecter</button>
-            <?php 
-            if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["action"]) && $_POST["action"] === "logout") {
-                session_unset();
-                session_destroy();
-                header("Location:socialeventlogin.php");
-                exit();
-            }
-            ?>
-        </form>
     </div>
 
     <!-- Affichage du profil utilisateur connecté -->
     <div class="profile-container">
-        <h2>Bienvenue, <?php echo htmlspecialchars($user['user_name']) . ' ' . htmlspecialchars($user['user_lastname']); ?> !</h2>
-       
+        <h2>Bienvenue, <?php echo htmlspecialchars($user['user_lastname']); ?> !</h2>
     </div>
 
     <h1 style="text-align: center;">Événements en cours</h1>
 
     <div class="carousel-container">
-        <!-- Compteur d'événements -->
         <div id="event-counter"> 
-            1/<?php echo $totalEvents; ?>
+            <?php echo $totalEvents; ?>
         </div>
 
         <div class="carousel">
@@ -95,8 +62,7 @@ $totalEvents = count($events); // Nombre total d'événements
                         <!-- Bouton Réserver -->
                         <a href="reservationEvent.php?event_id=<?php echo $event['event_id']; ?>" class="reserve-button">Réserver</a>
                     </div>
-                <?php endforeach;
-            else: ?>
+                <?php endforeach; ?>
                 <p>Aucun événement trouvé dans la base de données.</p>
             <?php endif; ?>
         </div>
@@ -111,35 +77,30 @@ $totalEvents = count($events); // Nombre total d'événements
     <script>
         const carousel = document.querySelector('.carousel');
         const carouselItems = document.querySelectorAll('.carousel-item');
-        const totalEvents = <?php echo $totalEvents; ?>; // Récupère le nombre total d'événements
+        const totalEvents = <?php echo $totalEvents; ?>;
         let currentIndex = 0;
 
-        // Fonction pour mettre à jour le carousel et le compteur
         function updateCarousel() {
             const offset = -currentIndex * 100;
             carousel.style.transform = `translateX(${offset}%)`;
             updateCounter();
         }
 
-        // Fonction pour mettre à jour le compteur
         function updateCounter() {
             const counter = document.getElementById('event-counter');
             counter.textContent = `${currentIndex + 1}/${totalEvents}`;
         }
 
-        // Défilement vers la gauche
         function scrollCarouselLeft() {
             currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselItems.length - 1;
             updateCarousel();
         }
 
-        // Défilement vers la droite
         function scrollRight() {
             currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
             updateCarousel();
         }
 
-        // Initialise le compteur lors du chargement de la page
         updateCounter();
     </script>
 

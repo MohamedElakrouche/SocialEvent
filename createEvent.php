@@ -1,3 +1,4 @@
+
 <?php
 require 'connection.php'; // Inclure la configuration de la connexion à la BDD
 include_once "nav.php";
@@ -16,7 +17,7 @@ include_once "nav.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Création d'évènements</title>
     <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
-    <!--<link rel="stylesheet" href="css/style_createEvent.css">-->
+    <link rel="stylesheet" href="css/style_createEvent.css">
 
 
 </head>
@@ -36,41 +37,37 @@ include_once "nav.php";
                 <option value="Sport">Sport</option>
                 <option value="Restaurant">Restaurant</option>
                 <option value="Groupe de lecture">Groupe de lecture</option>
-            </select>
-            <br />
-            <p>
-                <label for="event_location">Localité : </label>
-                <input type="text" name="event_location" id="event_location" size="15">
-
-            </p>
-            <br />
+            </select><br />
+             
+            <label for="event_location">Localité : </label>
+            <input type="text" name="event_location" id="event_location" size="15" required><br/>
+            
             <label for="describe">Description de l'évènement </label> <br /> <br />
             <textarea name="event_describe" id="event_describe" rows="10" cols="62"><?php echo isset($_POST['event_describe']) ? htmlspecialchars($_POST['event_describe']) : ''; ?></textarea>
 
 
-            <p>
-                <label for="event_date_begin">Date début</label>
-                <input type="date" name=event_date_begin>
+           
+            <label for="event_date_begin">Date début</label>
+            <input type="date" name="event_date_begin" min="<?php echo date('Y-m-d'); ?>">
 
-                <label for="event_date_end">Date fin</label>
-                <input type="date" name=event_date_end>
-            </p>
-            <p>
-                <label for="event_number_place_total">Nombre de places mis à disposition</label>
-                <input type="number" name="event_number_place_total">
-            </p>
+            <label for="event_date_end">Date fin</label>
+            <input type="date" name="event_date_end" min="<?php echo date('Y-m-d'); ?>">
+            
+           
+            <label for="event_number_place_total">Nombre de places mis à disposition</label>
+            <input type="number" name="event_number_place_total">
+        
 
-            <p>
-                <label for="event_stuff">Equipement necessaire ? </label> <br /> <br />
-                <textarea name="event_stuff" id="event_stuff" rows="8" cols="20"></textarea>
+        
+            <label for="event_stuff">Equipement necessaire ? </label> <br /> <br />
+            <textarea name="event_stuff" id="event_stuff" rows="8" cols="20"></textarea>
 
-            </p>
+            
 
-            <p>
-                <label for="image">Choisissez une image :</label>
-                <input type="file" name="image" id="image" accept="image/*" required>
-            </p>
-
+           
+            <label for="image">Choisissez une image :</label>
+            <input type="file" name="image" id="image" accept="image/*" required><br />
+            
             <button id="button_event" type="submit">Valider</button>
 
 
@@ -81,17 +78,41 @@ include_once "nav.php";
 
     <?php
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    // Récupérer les données du formulaire
+    $type_event = $_POST['type_event'];
+    $event_location = $_POST['event_location'];
+    $event_describe = $_POST['event_describe'];
+    $event_date_begin = $_POST['event_date_begin'];
+    $event_date_end = $_POST['event_date_end'];
+    $event_number_place_total = $_POST['event_number_place_total'];
+    $event_stuff = $_POST['event_stuff'];
 
-        // Récupérer les données du formulaire
-        $type_event = $_POST['type_event'];
-        $event_location = $_POST['event_location'];
-        $event_describe = $_POST['event_describe'];
-        $event_date_begin = $_POST['event_date_begin'];
-        $event_date_end = $_POST['event_date_end'];
-        $event_number_place_total = $_POST['event_number_place_total'];
-        $event_stuff = $_POST['event_stuff'];
+    // Initialiser un tableau pour stocker les messages d'erreur
+    $errors = [];
+
+    // Obtenir la date du jour
+    $today = date('Y-m-d');
+
+    // Vérifier que la date de début n'est pas antérieure à aujourd'hui
+    if ($event_date_begin < $today) {
+        $errors[] = "La date de début de l'événement ne peut pas être antérieure à la date du jour.";
+    }
+
+    // Vérifier que la date de fin n'est pas antérieure à la date de début
+    if ($event_date_end < $event_date_begin) {
+        $errors[] = "La date de fin de l'événement ne peut pas être antérieure à la date de début.";
+    }
+
+    // Si des erreurs existent, les afficher
+    if (!empty($errors)) {
+        foreach ($errors as $error) {
+            echo "<p class='error'>" . htmlspecialchars($error) . "";
+        }
+    } else {
+        
 
         // Traiter l'upload de l'image
         $uploadDir = 'uploads/';
@@ -131,6 +152,7 @@ include_once "nav.php";
             exit();
         }
     }
+}
     ?>
 
 </body>

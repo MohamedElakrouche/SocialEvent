@@ -12,9 +12,9 @@ $user_id = $_SESSION['user_id'];
 try {
     // Préparer la requête pour récupérer les événements réservés par l'utilisateur
     $stmt = $pdo->prepare("
-        SELECT e.event_id, e.event_title, e.event_describe, e.event_date_begin
+        SELECT  e.event_id, e.event_title, e.event_describe, e.event_date_begin
         FROM event e
-        INNER JOIN reservation r ON e.event_id = r.event_id
+       INNER JOIN reservation r ON e.event_id = r.event_id
         WHERE r.user_id = :user_id
         ORDER BY e.event_date_begin DESC
     ");

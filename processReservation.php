@@ -12,10 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Exemple d'insertion dans une base de données (utiliser PDO pour plus de sécurité)
     // Connexion à la base
     try {
-        $pdo = new PDO("mysql:host=localhost;dbname=socialevents", "root", "");
+        $pdo = new PDO("mysql:host=localhost;dbname=socialevent", "root", "");
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $pdo->prepare("INSERT INTO reservations (event_id, name, email, phone, guests) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO reservation (event_id, name, email, phone, guests) VALUES (?, ?, ?, ?, ?)");
         $stmt->execute([$eventId, $name, $email, $phone, $guests]);
 
         echo "Réservation réussie pour l'événement ID : $eventId";

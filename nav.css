@@ -1,4 +1,5 @@
 /* Style de la barre de navigation */
+/* Style de la barre de navigation */
 .nav {
     background-color: #333;
     overflow: hidden;
@@ -6,23 +7,28 @@
 }
 
 .nav ul {
-    list-style-type: none;
+    list-style-type: none; /* Enlever les puces */
     margin: 0;
     padding: 0;
-}
-
-.nav ul a {
-    text-decoration: none;
-    color: white;
+    display: flex; /* Utilisation de flexbox pour un affichage horizontal */
+    justify-content: center; /* Centrer les éléments de la liste */
 }
 
 .nav ul li {
     padding: 14px 20px;
-    display: inline-block;
+    display: inline-block; /* Affichage en ligne des éléments de la liste */
+    
 }
 
-.nav ul li:hover {
-    background-color: #575757;
+.nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px 15px;
+}
+
+.nav ul li a:hover {
+    background-color: #575757; /* Couleur au survol des liens */
 }
 
 /* Style pour le bouton de déconnexion */
@@ -34,17 +40,26 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    margin-top: 0px;
+    
 }
 
 #logout:hover {
     background-color: #d32f2f;
 }
 
-/* Section Profil utilisateur */
+/* Style des éléments de formulaire */
+form {
+    display: inline-block; /* Pour que le formulaire ne prenne pas toute la largeur */
+    padding: 10px;
+    
+}
+
+/* Section Profil utilisateur (s'il y en a) */
 .profile-container {
     background-color: #fff;
-    padding: 20px;
-    margin: 20px;
+    padding: 10px;
+    margin: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;

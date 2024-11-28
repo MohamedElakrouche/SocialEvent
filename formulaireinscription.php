@@ -64,7 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" id="user_firstname" name="user_firstname" placeholder="Entrez votre prénom" size="25" required></br></br>
 
             <label for="birthdate">Date de naissance :</label>
-            <input type="Date" id="birthdate" name="user_birthdate" placeholder="Entrez votre date de naissance" size="25" required></br></br>
+<input type="date" id="birthdate" name="user_birthdate" placeholder="Entrez votre date de naissance" size="25" required 
+       max="<?php echo date('Y-m-d', strtotime('-18 years')); ?>"><br><br>
+
+
 
             <label for="user_mail">Mail:</label>
             <input type="mail" id="user_mail" name="user_mail" placeholder="Entrez votre mail" size="25" required></br></br>
