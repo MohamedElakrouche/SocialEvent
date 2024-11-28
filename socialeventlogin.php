@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             
                 $_SESSION["user_id"]=$user["user_id"];
 
-                header("Location:createEvent.php"); // Redirection vers l'espace personnel
+                header("Location:homeEvent.php"); // Redirection vers l'espace personnel
                 exit();
             } 
             
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <!--<link rel="stylesheet" href="loginstyle.css"> <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="Login.css"> <!-- Lien vers le fichier CSS-->
 </head>
 
 <body>
@@ -77,12 +77,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             ?>
 
             <label for="user_mail">Mail:</label>
-            <input type="email" id="user_mail" name="user_mail" placeholder="Entrez votre mail" required>
+            <input type="email" id="user_mail" name="user_mail" placeholder="Entrez votre mail" required></br></br>
 
             <label for="password">Mot de passe:</label>
-            <input type="password" id="user_password" name="user_password" placeholder="Entrez votre mot de passe" required>
+            <input type="password" id="user_password" name="user_password" placeholder="Entrez votre mot de passe" required></br></br>
 
-            <button type="submit">Login</button>
+            <button type="submit">Login</button></br></br>
+             Pas encore Membre ?  <a href="formulaireinscription.php">inscrivez-vous </a>
         </form>
 
     </div>

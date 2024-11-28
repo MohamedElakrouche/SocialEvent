@@ -1,15 +1,30 @@
 <?php
+// Démarrer la session
+session_start();
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['user_id'])) {
+    // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
+    header('Location: socialeventlogin.php');
+    exit;
+}
+
+// Inclure la connexion à la base de données
 include "connection.php";
-include_once "nav.php";
 
+// Récupérer l'ID de l'utilisateur connecté
+$user_id = $_SESSION['user_id'];
 
+// Récupérer les informations de l'utilisateur depuis la base de données
+$stmt = $pdo->prepare("SELECT user_name, user_lastname, user_mail FROM user WHERE user_id = :user_id");
+$stmt->execute(['user_id' => $user_id]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Récupération des événements depuis la base de données
-$sql = "SELECT event_id, event_title, event_image, event_describe, event_number_place_total, event_location FROM event"; // Ajout de 'id' pour redirection unique
+// Récupérer les événements depuis la base de données
+$sql = "SELECT event_id, event_title, event_image, event_describe, event_number_place_total, event_location FROM event"; 
 $stmt = $pdo->query($sql);
 $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $totalEvents = count($events); // Nombre total d'événements
-
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +35,46 @@ $totalEvents = count($events); // Nombre total d'événements
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Événements</title>
     <link rel="stylesheet" href="css/style_homeEvent.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/nav.css?v=<?php echo time(); ?>"> <!-- Intégration de la barre de navigation -->
 </head>
 
 <body>
 
+    <!-- Barre de navigation -->
+    <div class="nav">
+        <ul>
+            <a href="homeEvent.php">
+                <li>Accueil</li>
+            </a>
+            <a href="myEvents.php">
+                <li>Mes évènements</li>
+            </a>
+            <a href="createEvent.php">
+                <li>Création</li>
+            </a>
+            <a href="profile.php">
+                <li>Profil</li>
+            </a>
+        </ul>
+        <form action="" method="POST">
+            <input type="hidden" name="action" value="logout">
+            <button id="logout" type="submit">Se déconnecter</button>
+            <?php 
+            if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["action"]) && $_POST["action"] === "logout") {
+                session_unset();
+                session_destroy();
+                header("Location:socialeventlogin.php");
+                exit();
+            }
+            ?>
+        </form>
+    </div>
 
+    <!-- Affichage du profil utilisateur connecté -->
+    <div class="profile-container">
+        <h2>Bienvenue, <?php echo htmlspecialchars($user['user_name']) . ' ' . htmlspecialchars($user['user_lastname']); ?> !</h2>
+       
+    </div>
 
     <h1 style="text-align: center;">Événements en cours</h1>
 
@@ -92,7 +142,6 @@ $totalEvents = count($events); // Nombre total d'événements
         // Initialise le compteur lors du chargement de la page
         updateCounter();
     </script>
-
 
 </body>
 

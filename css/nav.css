@@ -1,64 +1,62 @@
-/* Conteneur de la barre de navigation */
+/* Style de la barre de navigation */
 .nav {
-    background-color: rgba(219, 190, 139, 0.705); /* Couleur de fond */
-    border-radius: 8px;
-    max-width: 60%; /* Limite la largeur de la barre */
-    margin: 30px auto; /* Centre la barre de navigation */
-    padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(235, 92, 4, 0.9); /* Ombre */
-    text-align: center;
-    font-family: 'Yellowtail', cursive; /* Police personnalisée */
+    background-color: #333;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
 }
 
-/* Liste de navigation */
 .nav ul {
-    display: flex;
-    justify-content: center; /* Centre les éléments horizontalement */
-    padding: 0;
+    list-style-type: none;
     margin: 0;
-    list-style-type: none; /* Supprime les puces */
+    padding: 0;
 }
 
-/* Lien contenant l'élément de liste */
 .nav ul a {
-    text-decoration: none; /* Supprime le soulignement */
-    color: rgb(3, 97, 104); /* Couleur du texte */
-    font-size: 1.2em;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transition fluide */
-    font-weight: bold;
-    display: flex; /* Permet d'ajuster le contenu dans le lien */
-    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.nav ul li {
+    padding: 14px 20px;
+    display: inline-block;
+}
+
+.nav ul li:hover {
+    background-color: #575757;
+}
+
+/* Style pour le bouton de déconnexion */
+#logout {
+    background-color: #f44336;
+    color: white;
     padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-/* Espacement entre les éléments */
-.nav ul a:not(:last-child) {
-    margin-right: 20px;
+#logout:hover {
+    background-color: #d32f2f;
 }
 
-/* Effet de survol */
-.nav ul a:hover {
-    background-color: rgba(243, 229, 203, 0.404); /* Couleur de survol */
-    color: #ed5904; /* Couleur d'accentuation */
+/* Section Profil utilisateur */
+.profile-container {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-/* Lien actif */
-.nav ul a.active {
-    background-color: rgba(6, 107, 105, 0.8); /* Couleur de fond active */
-    color: white; /* Couleur du texte actif */
-    text-decoration: none;
+.profile-container h2 {
+    font-size: 1.8rem;
+    color: #4CAF50;
+    margin-bottom: 10px;
 }
 
-/* Supprime les contours lors du focus */
-.nav ul a:focus {
-    text-decoration: none;
-    outline: none; /* Supprime le contour par défaut */
-}
-
-/* Élément de liste à l'intérieur du lien */
-.nav ul a li {
-    list-style: none; /* Supprime les puces */
-    padding: 0;
-    margin: 0;
+.profile-container p {
+    font-size: 1.2rem;
+    color: #666;
 }
