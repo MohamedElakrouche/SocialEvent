@@ -1,12 +1,20 @@
 <link rel="stylesheet" href="css/nav.css">
-<?php session_start(); ?>
+<?php 
+
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    
+    header('Location: socialeventlogin.php');
+    exit;
+}
+?>
 <div class="nav">
 
     <ul>
         <a href="homeEvent.php">
             <li>Accueil</li>
         </a>
-        <a>
+        <a href="myEvents.php">
             <li>Mes évènements</li>
         </a>
         <a href="createEvent.php">
@@ -16,25 +24,33 @@
         <a href="profile.php">
             <li>Profil</li>
         </a>
+
+        
     </ul>
     <form action="" method="POST">
+        <input type="hidden" name="action" value="logout">
         <button id="logout" type="submit">Se déconnecter</button>
-    </form>
-
-</div>
-<?php 
-if ($_SERVER["REQUEST_METHOD"]==="POST"){
-    if (session_status()=== PHP_SESSION_ACTIVE) {
+        
+       <?php 
+       
+       if ($_SERVER["REQUEST_METHOD"]==="POST" && isset($_POST["action"]) && $_POST["action"]==="logout")
+        {
+     
+    
+    
 
     session_unset();
     session_destroy();
     header("Location:socialeventlogin.php");
     exit();
-    }
-    else{
-    header("Location:socialeventlogin.php");
-    exit();
-    }
+    
+    
+        }
+      
+        ?>
+    </form>
+    
+    
+   
 
-}
-?>
+</div>

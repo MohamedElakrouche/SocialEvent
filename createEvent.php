@@ -3,14 +3,7 @@ require 'connection.php'; // Inclure la configuration de la connexion à la BDD
 include_once "nav.php";
 
 
- if ($_SESSION["user_id"]) {
 
-    echo "Bonjour toi";
-}
-else {
-
-    header("Location:socialeventlogin.php");
-}
 
 
 ?>
@@ -25,10 +18,7 @@ else {
     <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
     <!--<link rel="stylesheet" href="css/style_createEvent.css">-->
 
-    <?php include "connection.php";
 
-
-    ?>
 </head>
 
 <body>
@@ -37,7 +27,7 @@ else {
     <h1>Créer votre évènement </h1>
 
     <div class="create_container">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
 
             <label for="type_event"> Séléctionnez le type d'évènement :</label>
             <select name="type_event" id="type_event">
@@ -81,7 +71,7 @@ else {
                 <input type="file" name="image" id="image" accept="image/*" required>
             </p>
 
-            <button>Valider</button>
+            <button id="button_event" type="submit">Valider</button>
 
 
         </form>
@@ -130,13 +120,15 @@ else {
                 ':event_stuff' => $event_stuff,
                 ':event_image' => $fileDestination,
                 ':event_location' => $event_location
+                
             ]);
 
             // Rediriger vers la page d'accueil
-            header("Location: homeEvent.php");
+            header("Location:homeEvent.php");
             exit;
         } else {
             echo "Erreur : le fichier image n'a pas pu être téléversé ou le format n'est pas autorisé.";
+            exit();
         }
     }
     ?>
